@@ -63,6 +63,10 @@
                      <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                      Tables
                  </a>
+                 <a class="nav-link" href="cms.php">
+                     <div class="sb-nav-link-icon"><i class="fa-regular fa-file"></i></div>
+                     CMS
+                 </a>
              </div>
          </div>
          <div class="sb-sidenav-footer">

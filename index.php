@@ -26,7 +26,7 @@ include "Daskbord/header.php";
                 </ol>
 
 
-                <table class="table">
+                <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -63,9 +63,7 @@ include "Daskbord/header.php";
                         <?php } ?>
                     </tbody>
                 </table>
-                <tbody id="table-data">
 
-                </tbody>
 
             </div>
         </main>

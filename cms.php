@@ -27,7 +27,7 @@ include "Daskbord/header.php";
                 </ol> -->
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-dark mb-3 me-5 mt-4" type="button"> <a href="create_cms.php" class="text-white" style="text-decoration : none"> Add New</button> </a>
+                    <button class="btn btn-dark mb-3 me-5 mt-4" type="button"> <a href="cms_create.php" class="text-white" style="text-decoration : none"> Add New</button> </a>
                 </div>
 
                 <table class="table  table-striped table-bordered ">
@@ -60,16 +60,18 @@ include "Daskbord/header.php";
                                 <td><?php echo $row['cms_title']; ?></td>
                                 <td><?php echo $row['cms_url']; ?></td>
 
-                                <td><?php echo $row['cms_status']; ?></td>
-                                <!-- <td>
+                                <td>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" <?php echo ($row['cms_status'] == 1) ? "checked" : ""; ?>>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                     </div>
-                                </td> -->
+                                </td>
+
 
                                 <td>
-                                    <a class='btn btn-success' href='edit.php'>Edit</a>
-                                    <a class='btn btn-danger' href='delete.php'>Delete</a>
+                                    <a class='btn btn-success' href='cms_edit.php?cms_id=<?php echo $row['cms_id']; ?>'>Edit</a>
+                                    <a class='btn btn-danger' href='cms_delete.php?cms_id=<?php echo $row['cms_id']; ?>'>Delete</a>
+
                                 </td>
                             </tr>
                         <?php } ?>
@@ -77,6 +79,9 @@ include "Daskbord/header.php";
 
 
                 </table>
+                <tbody id="table-data">
+
+                </tbody>
 
             </div>
         </main>

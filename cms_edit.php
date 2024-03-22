@@ -21,10 +21,7 @@ if (isset($_GET['cms_id'])) {
         $title = $row['cms_title'];
         $url = $row['cms_url'];
         $content = $row['cms_content'];
-        // $status = $row['cms_status'];
-
         $status = $row['cms_status'];
-        $status1 = explode(",", $status);
     } else {
         $error = "CMS entry not found with provided ID";
     }
@@ -39,17 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = test_input($_POST['Title']);
     $url = test_input($_POST['Page_URL']);
     $content = test_input($_POST['content']);
-    $status = isset($_POST['flexSwitchCheckChecked']) ? 1 : 0; // Set status based on checkbox
-
-    if (isset($_POST['cms_status'])) {
-        if (is_array($_POST['cms_status'])) {
-            $status = implode(',', $_POST['cms_status']);
-        } else {
-            $status = $_POST['cms_status'];
-        }
-    } else {
-        $status = '';
-    }
+    $status = isset($_POST['flexSwitchCheckChecked']) ? $status = 1 : $status = 0; // Set status based on checkbox
 
     // Validate inputs
     if (empty($title)) {
@@ -154,9 +141,9 @@ function test_input($data)
                                                 <span class="error"><?php echo $contentErr; ?></span>
                                             </div>
 
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" name="flexSwitchCheckChecked" id="flexSwitchCheckChecked" value="<?php if ($status1 === 1) echo "checked" ?> ">
-                                                <label class="form-check-label" for="flexSwitchCheckChecked">Is Active?</label>
+                                            <div class="form-group form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" name="flexSwitchCheckChecked" id="flexSwitchCheckChecked" value="1" <?php if ($status == 1) echo "checked"; ?>>
+                                                <label class="form-check-label" for="flexSwitchCheckChecked"> Is Active?</label>
                                             </div>
 
                                             <div class="form-group mt-4">
@@ -181,3 +168,13 @@ function test_input($data)
 </body>
 
 </html>
+
+<script>
+    // JavaScript to generate CMS URL automatically
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('Title').addEventListener('input', function() {
+            var title = this.value.trim().toLowerCase().replace(/\s+/g, '-');
+            document.getElementById('Page_URL').value = title;
+        });
+    });
+</script>
