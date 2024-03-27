@@ -58,6 +58,7 @@ include "Daskbord/header.php";
 
                                 <td>
                                     <a class='btn btn-success' href='edit.php?id=<?php echo $row['id']; ?>'>Edit</a>
+                                    <a class='btn btn-danger' href='delete.php?id=<?php echo $row['id']; ?>'>Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>
