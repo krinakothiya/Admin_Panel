@@ -100,7 +100,7 @@ function test_input($data)
                         <h3 class="text-center font-weight-light my-4">Create Account</h3>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body ">
                         <form method="post" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
